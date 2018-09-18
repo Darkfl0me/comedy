@@ -1,4 +1,5 @@
 const https = require('https')
+const http = require('http')
 const fs = require('fs')
 const express = require('express')
 const app = express()
@@ -16,7 +17,9 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/v1', jokes)
 
-const server = https.createServer(credintials, app)
+// const server = https.createServer(credintials, app)
+
+const server = http.createServer(app)
 server.listen(config.port, () => {
     console.log('Server is listening on', config.port)
 })
