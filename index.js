@@ -17,6 +17,10 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/v1', jokes)
 
+app.use((req, res) => {
+    res.status(404).send('Not Found')
+})
+
 // const server = https.createServer(credintials, app)
 
 const server = http.createServer(app)
