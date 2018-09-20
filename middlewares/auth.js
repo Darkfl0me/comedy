@@ -12,8 +12,9 @@ let isAuthenticated = (req, res) =>
         else {
             let header = req.get('authorization').split(' ')
             let token = header[1]
+            console.log('hello')
             try {
-                let decoded = jwt.verify(token, config.secret)
+                let decoded = jwt.verify(token, config.secret_key)
                 let user = await User.findById(decoded.id)
                 console.log(user)
                 resolve({message: 'Authenicated'})

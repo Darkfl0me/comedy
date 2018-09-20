@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: false}))
 app.use('/api/v1', jokes)
 
 app.use((req, res) => {
-    res.status(404).send('Not Found')
+    res.status(404).json({status: 404, message: "Not found"})
 })
 
 // const server = https.createServer(credintials, app)
